@@ -4,8 +4,12 @@ This project is generated with [yo angular generator](https://github.com/yeoman/
 version 0.11.1.
 
 ## Build & development
+You should have grunt-cli, bower, compass and yo installed in your system.
 
-Run `grunt` for building and `grunt serve` for preview.
+Run 'git clone '
+Run 'grunt install'
+Run 'bower install'
+Run `grunt serve` for preview/development and `grunt` for building.
 
 ## Testing
 
