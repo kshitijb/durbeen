@@ -8,7 +8,7 @@
  * Controller of the durbeenApp
  */
 angular.module('durbeenApp')
-  .controller('MainCtrl', function ($scope, imagedataService) {
+  .controller('MainCtrl', function ($scope, imagedataService, amMoment) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -16,6 +16,7 @@ angular.module('durbeenApp')
     ];
 
     var prepareImages = function (arr) {
+      console.log(amMoment);
       // Split result array into rows
       var rows = [], j = 0;
 
@@ -34,5 +35,6 @@ angular.module('durbeenApp')
   	imagedataService.getAllImages()
     .then(function(res){
       prepareImages(res.data.results);
+      console.log(res.data.results);
     });
   });

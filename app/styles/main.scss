@@ -11,6 +11,8 @@
 
 body {
   padding: 0;
+  background: #f7f7f7;
+  font-family: 'Open Sans';
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -23,9 +25,6 @@ body {
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 10px;
-
   /* Make the masthead heading the same height as the navigation */
   h3 {
     margin-top: 0;
@@ -35,16 +34,48 @@ body {
   }
 }
 
+.navbar {
+  background: white;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  border: none;
+  height: 64px;
+}
+
+.logo-top {
+  background: url(../images/logo.png);
+  background-size: contain;
+  height: 64px;
+  width: 223px;
+  display: block;
+}
+
 /* Image Grid */
-.image-preview {
+.shot-container {
+  padding: 10px;
+  background: white;
+  border-radius: 3px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.shot-container__thumb {
   display: block;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
 
   height: 200px;
+}
 
-  margin-bottom: 20px;
+.shot-container__info {
+  margin-top: 15px;
+  font-size: 11px;
+  color: #777;
+}
+
+.shot-container__info___name {
+  color: black;
+  font-weight: 600;
 }
 
 /* Custom page footer */
