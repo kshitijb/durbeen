@@ -35,5 +35,5 @@ angular
         };
     })
     .constant('global.variables', {
-        backendBaseUrl: 'http://127.0.0.1:8000/'
+        backendBaseUrl: 'http://128.199.247.181:8000/'
     });
