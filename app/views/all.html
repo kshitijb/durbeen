@@ -1,0 +1,6 @@
+<div class="row">
+    <button ng-click="getAllImages()">Get Images</button>
+    <div ng-repeat="image in imageData">
+        <img ng-src="{{ image.image_url }}">
+    </div>
+</div>
