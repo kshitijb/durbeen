@@ -1,6 +1,7 @@
-<div class="row">
-    <button ng-click="getAllImages()">Get Images</button>
-    <div ng-repeat="image in imageData">
-        <img ng-src="{{ image.image_url }}">
-    </div>
+<div ng-if="imageData">
+	<div class="row" ng-repeat="rows in imageData">
+	    <div class="col-xs-4" ng-repeat="item in rows">
+	        <a class="image-preview" ng-href="{{ item.image_url }}" style="background-image: url({{ item.image_url }})"></a>
+	    </div>
+	</div>
 </div>

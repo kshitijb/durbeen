@@ -14,11 +14,25 @@ angular.module('durbeenApp')
       'AngularJS',
       'Karma'
     ];
-    $scope.getAllImages = function(){
-    	imagedataService.getAllImages()
-	    .then(function(res){
-	    	$scope.imageData = res.data.results;
-	    });
+
+    var prepareImages = function (arr) {
+      // Split result array into rows
+      var rows = [], j = 0;
+
+      for (var i = 1; i <= arr.length; i++) {
+        if (!rows[j])
+          rows[j] = [];
+
+        rows[j].push(arr[i]);
+        if (i % 3 === 0)
+          j++;
+      }
+
+      $scope.imageData = rows;
     };
+
+  	imagedataService.getAllImages()
+    .then(function(res){
+      prepareImages(res.data.results);
+    });
   });
-// I’m working from home today. I’ve a doctor’s appointment. So, in case anything happens, keep me updated. Thanks

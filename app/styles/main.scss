@@ -35,6 +35,18 @@ body {
   }
 }
 
+/* Image Grid */
+.image-preview {
+  display: block;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+
+  height: 200px;
+
+  margin-bottom: 20px;
+}
+
 /* Custom page footer */
 .footer {
   padding-top: 19px;
