@@ -18,7 +18,7 @@ angular
         'ngTouch',
         'angularMoment'
     ])
-    .config(function($routeProvider, $httpProvider) {
+    .config(function($routeProvider, $httpProvider, $resourceProvider) {
 
         moment.locale('en', {
           calendar : {

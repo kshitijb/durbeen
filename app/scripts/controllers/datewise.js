@@ -16,6 +16,7 @@ angular.module('durbeenApp')
     ];
 
     var selectedDate = $routeParams.date;
+    $scope.selectedDate = moment(selectedDate, 'DD-MM-YYYY');
     $scope.imageData = [];
 
     var prepareImages = function (data) {

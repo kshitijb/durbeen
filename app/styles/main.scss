@@ -15,6 +15,12 @@ body {
   font-family: 'Open Sans';
 }
 
+a:hover {
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
@@ -39,6 +45,38 @@ body {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
   border: none;
   height: 64px;
+}
+
+.navbar__links {
+  padding-left: 10px;
+}
+
+.navbar__links a:first-child {
+  border-left: 1px solid #eee;
+}
+
+.navbar__links a {
+  display: inline-block;
+  height: 64px;
+  line-height: 64px;
+  font-size: 14px;
+  color: black;
+  padding: 0 20px;
+  border-right: 1px solid #eee;
+}
+
+.navbar__links a.active {
+  background: #eee;
+  font-weight: 500;
+}
+
+.navbar__links a:hover {
+  color: #7323dc;
+}
+
+.navbar__links___coming-soon {
+  color: #ddd !important;
+  cursor: pointer;
 }
 
 .logo-top {
