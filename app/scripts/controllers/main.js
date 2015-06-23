@@ -15,26 +15,60 @@ angular.module('durbeenApp')
       'Karma'
     ];
 
-    var prepareImages = function (arr) {
-      console.log(amMoment);
-      // Split result array into rows
-      var rows = [], j = 0;
+    /**
+     * The structure of dateWiseData will be like this
+     *
+     * [
+     *   {
+     *     date: '2015-02-06',
+     *     totalCount: 102,
+     *     results: [...]
+     *   },
+     *   ...
+     * ]
+     *
+     * @type {Array}
+     */
+    $scope.dateWiseData = [];
 
-      for (var i = 1; i <= arr.length; i++) {
+    /**
+     * Prepare date-wise objects for image results and
+     * bucket them row-wise (3 items per row)
+     *
+     */
+    var prepareImages = function (data) {
+      var arr = data.results,
+        date = data.date;
+
+      if (!arr.length)
+        return;
+
+      // Split result array into rows
+      var rows = [], j = 0,
+        condition = (arr.length > 6) ? 6 : arr.length;
+
+      for (var i = 1; i <= condition; i++) {
         if (!rows[j])
           rows[j] = [];
 
-        rows[j].push(arr[i]);
+        rows[j].push(arr[i-1]);
         if (i % 3 === 0)
           j++;
       }
 
-      $scope.imageData = rows;
+      $scope.dateWiseData.push({totalCount: data.count, date: date, results: rows});
+
+      // Send the request for the previous date
+      requestImagesForDate(moment(date).subtract(1, 'days').format('DD-MM-YYYY'));
     };
 
-  	imagedataService.getAllImages()
-    .then(function(res){
-      prepareImages(res.data.results);
-      console.log(res.data.results);
-    });
+    var requestImagesForDate = function (date) {
+      imagedataService.getAllImages(date)
+      .then(function(res){
+        prepareImages(res.data);
+      });
+    }
+
+    // Request data for today
+    requestImagesForDate(moment(new Date()).format('DD-MM-YYYY'));
   });

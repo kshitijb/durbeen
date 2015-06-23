@@ -28,9 +28,14 @@ angular
                 templateUrl: 'views/about.html',
                 controller: 'AboutCtrl'
             })
+            .when('/datewise/:date', {
+                templateUrl: 'views/datewise.html',
+                controller: 'DatewiseCtrl'
+            })
             .otherwise({
                 redirectTo: '/'
             });
+
         $httpProvider.defaults.headers.common = {
             Accept: 'application/json',
         };
