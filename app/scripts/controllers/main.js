@@ -14,7 +14,6 @@ angular.module('durbeenApp')
       'AngularJS',
       'Karma'
     ];
-
     /**
      * The structure of dateWiseData will be like this
      *

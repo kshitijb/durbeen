@@ -79,11 +79,26 @@ body {
 
 .shot-container__thumb {
   display: block;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
   background-size: cover;
+  background-position: top center;
 
   height: 200px;
+
+  -webkit-filter: grayscale(0.5);
+  -moz-filter: grayscale(0.5);
+  filter: grayscale(0.5);
+
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.shot-container:hover {
+  .shot-container__thumb {
+    -webkit-filter: grayscale(0);
+    -moz-filter: grayscale(0);
+    filter: grayscale(0);
+  }
 }
 
 .shot-container__info {

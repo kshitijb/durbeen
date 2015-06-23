@@ -19,6 +19,18 @@ angular
         'angularMoment'
     ])
     .config(function($routeProvider, $httpProvider) {
+
+        moment.locale('en', {
+          calendar : {
+            lastDay : '[Yesterday]',
+            sameDay : '[Today]',
+            nextDay : '[Tomorrow]',
+            lastWeek : '[last] dddd',
+            nextWeek : 'dddd',
+            sameElse : 'LL'
+          }
+        });
+
         $routeProvider
             .when('/', {
                 templateUrl: 'views/all.html',
