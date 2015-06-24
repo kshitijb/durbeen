@@ -29,6 +29,7 @@ angular.module('durbeenApp')
      * @type {Array}
      */
     $scope.dateWiseData = [];
+    var currentDate, listingThreshold = 3, currentListings = 0;
 
     /**
      * Prepare date-wise objects for image results and
@@ -36,15 +37,15 @@ angular.module('durbeenApp')
      *
      */
     var prepareImages = function (data) {
-      var arr = data.results,
-        date = data.date;
+      var arr = data.results;
+      currentDate = data.date;
 
       if (!arr.length)
         return;
 
       // Split result array into rows
       var rows = [], j = 0,
-        condition = (arr.length > 6) ? 6 : arr.length;
+        condition = (arr.length > 3) ? 3 : arr.length;
 
       for (var i = 1; i <= condition; i++) {
         if (!rows[j])
@@ -55,10 +56,14 @@ angular.module('durbeenApp')
           j++;
       }
 
-      $scope.dateWiseData.push({totalCount: data.count, date: date, results: rows});
+      $scope.dateWiseData.push({totalCount: data.count, date: currentDate, results: rows});
+      currentListings++;
+
+      if (currentListings === listingThreshold)
+        return;
 
       // Send the request for the previous date
-      requestImagesForDate(moment(date).subtract(1, 'days').format('DD-MM-YYYY'));
+      requestImagesForDate(moment(currentDate).subtract(1, 'days').format('DD-MM-YYYY'));
     };
 
     var requestImagesForDate = function (date) {
@@ -66,6 +71,16 @@ angular.module('durbeenApp')
       .then(function(res){
         prepareImages(res.data);
       });
+    };
+
+    $scope.loadMoreData = function () {
+      if ($scope.dateWiseData.length < 3)
+        return;
+
+      if (currentListings === 3) {
+        currentListings = 0;
+        requestImagesForDate(moment(currentDate).subtract(1, 'days').format('DD-MM-YYYY'));
+      }
     }
 
     // Request data for today
