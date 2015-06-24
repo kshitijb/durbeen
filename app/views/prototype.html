@@ -1,0 +1,6 @@
+<div ng-repeat="p in prototypes" class="prototypes">
+	<div class="prototype-container embed-responsive embed-responsive-4by3 col-md-5 .col-md-offset-1">
+		<div>{{ p.project_name }}</div>
+		<iframe ng-src="{{ trustSrc(p.link) }}"+"?emb=1" width="486" height="960" allowTransparency="true" frameborder="0" class="embed-responsive-item"></iframe>
+	</div>
+</div>

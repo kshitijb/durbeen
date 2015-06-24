@@ -44,6 +44,10 @@ angular
                 templateUrl: 'views/datewise.html',
                 controller: 'DatewiseCtrl'
             })
+            .when('/prototypes', {
+                templateUrl: 'views/prototype.html',
+                controller: 'PrototypeCtrl'
+            })
             .otherwise({
                 redirectTo: '/'
             });
