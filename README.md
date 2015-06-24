@@ -6,9 +6,12 @@ version 0.11.1.
 ## Build & development
 You should have grunt-cli, bower, compass and yo installed in your system.
 
-Run 'git clone '
-Run 'grunt install'
-Run 'bower install'
+Run `git clone`
+
+Run `grunt install`
+
+Run `bower install`
+
 Run `grunt serve` for preview/development and `grunt` for building.
 
 ## Testing
