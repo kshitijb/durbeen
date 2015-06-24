@@ -49,6 +49,10 @@ angular
                 templateUrl: 'views/prototype.html',
                 controller: 'PrototypeCtrl'
             })
+            .when('/cluster/:clusterName', {
+                templateUrl: 'views/all.html',
+                controller: 'MainCtrl'
+            })
             .otherwise({
                 redirectTo: '/'
             });
