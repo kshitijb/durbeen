@@ -1,18 +1,20 @@
-<div infinite-scroll="loadMoreData()" ng-if="dateWiseData">
-	<div ng-repeat="dataItem in dateWiseData" class="date-wise-section">
-		<h2 class="date-wise-section__title">{{ dataItem.date | amCalendar }}</h2>
-		<div class="row" ng-repeat="rows in dataItem.results">
-		    <div class="col-md-4" ng-repeat="item in rows">
-		    	<div class="shot-container">
-			        <a class="shot-container__thumb" ng-href="{{ item.image_url }}" style="background-image: url({{ item.image_thumb }})"></a>
+<div class="image-container">
+	<div infinite-scroll="loadMoreData()" ng-if="dateWiseData">
+		<div ng-repeat="dataItem in dateWiseData" class="date-wise-section">
+			<h2 class="date-wise-section__title">{{ dataItem.date | amCalendar }}</h2>
+			<div class="row" ng-repeat="rows in dataItem.results">
+			    <div class="col-md-4" ng-repeat="item in rows">
+			    	<div class="shot-container">
+				        <a class="shot-container__thumb" ng-href="{{ item.image_url }}" style="background-image: url({{ item.image_thumb }})"></a>
 
-			        <div class="shot-container__info">
-			        	by <span class="shot-container__info___name">{{item.image_author}}</span> at {{item.image_date | amDateFormat: 'h:mm a'}}
-			        </div>
+				        <div class="shot-container__info">
+				        	by <span class="shot-container__info___name">{{item.image_author}}</span> at {{item.image_date | amDateFormat: 'h:mm a'}}
+				        </div>
+				    </div>
 			    </div>
-		    </div>
-		</div>
+			</div>
 
-		<a href="#/datewise/{{ dataItem.date | amDateFormat: 'DD-MM-YYYY' }}" ng-if="dataItem.totalCount > 6" class="view-more">{{ dataItem.totalCount - 6 }} more</a>
+			<a href="#/datewise/{{ dataItem.date | amDateFormat: 'DD-MM-YYYY' }}" ng-if="dataItem.totalCount > 6" class="view-more">{{ dataItem.totalCount - 6 }} more</a>
+		</div>
 	</div>
 </div>

@@ -45,6 +45,10 @@ angular
                 templateUrl: 'views/datewise.html',
                 controller: 'DatewiseCtrl'
             })
+            .when('/cluster/:clusterName', {
+                templateUrl: 'views/all.html',
+                controller: 'MainCtrl'
+            })
             .otherwise({
                 redirectTo: '/'
             });

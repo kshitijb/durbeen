@@ -8,12 +8,15 @@
  * Controller of the durbeenApp
  */
 angular.module('durbeenApp')
-  .controller('MainCtrl', function ($scope, imagedataService, amMoment) {
+  .controller('MainCtrl', function ($scope, imagedataService, amMoment, $routeParams) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+
+    $scope.clusterName = ($routeParams.clusterName) ? $routeParams.clusterName : '';
+
     /**
      * The structure of dateWiseData will be like this
      *
@@ -67,6 +70,15 @@ angular.module('durbeenApp')
     };
 
     var requestImagesForDate = function (date) {
+      if ($scope.clusterName) {
+        imagedataService.getAllImages(date)
+        .then(function(res){
+          prepareImages(res.data);
+        });
+
+        return;
+      }
+
       imagedataService.getAllImages(date)
       .then(function(res){
         prepareImages(res.data);
