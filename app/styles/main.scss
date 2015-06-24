@@ -17,6 +17,10 @@ body {
   font-family: 'Open Sans';
 }
 
+a {
+  cursor: pointer;
+}
+
 a:hover, a:active {
   text-decoration: none;
   border: none;

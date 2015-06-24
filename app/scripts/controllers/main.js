@@ -47,10 +47,9 @@ angular.module('durbeenApp')
         return;
 
       // Split result array into rows
-      var rows = [], j = 0,
-        condition = (arr.length > 3) ? 3 : arr.length;
+      var rows = [], j = 0;
 
-      for (var i = 1; i <= condition; i++) {
+      for (var i = 1; i <= arr.length; i++) {
         if (!rows[j])
           rows[j] = [];
 
