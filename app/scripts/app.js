@@ -20,7 +20,6 @@ angular
         'infinite-scroll'
     ])
     .config(function($routeProvider, $httpProvider, $resourceProvider) {
-
         moment.locale('en', {
           calendar : {
             lastDay : '[Yesterday]',
@@ -53,6 +52,10 @@ angular
                 templateUrl: 'views/all.html',
                 controller: 'MainCtrl'
             })
+            .when('/cluster/:clusterName/datewise/:date', {
+                templateUrl: 'views/datewise.html',
+                controller: 'DatewiseCtrl'
+            })
             .otherwise({
                 redirectTo: '/'
             });
@@ -60,6 +63,8 @@ angular
         $httpProvider.defaults.headers.common = {
             Accept: 'application/json',
         };
+    }).run(function($rootScope, $location) {
+        $rootScope.location = $location;
     })
     .constant('global.variables', {
         backendBaseUrl: 'http://128.199.247.181:8000/'

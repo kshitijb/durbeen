@@ -14,7 +14,9 @@
 			    </div>
 			</div>
 
-			<a href="#/datewise/{{ dataItem.date | amDateFormat: 'DD-MM-YYYY' }}" ng-if="dataItem.totalCount > 6" class="view-more">{{ dataItem.totalCount - 6 }} more</a>
+			<a href="#/datewise/{{ dataItem.date | amDateFormat: 'DD-MM-YYYY' }}" ng-if="dataItem.totalCount > 3 && !clusterName" class="view-more">{{ dataItem.totalCount - 6 }} more</a>
+
+			<a href="#/cluster/{{ clusterName }}/datewise/{{ dataItem.date | amDateFormat: 'DD-MM-YYYY' }}" ng-if="dataItem.totalCount > 3 && clusterName" class="view-more">{{ dataItem.totalCount - 6 }} more</a>
 		</div>
 	</div>
 </div>

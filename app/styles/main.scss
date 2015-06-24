@@ -17,7 +17,7 @@ body {
   font-family: 'Open Sans';
 }
 
-a:hover {
+a:hover, a:active {
   text-decoration: none;
   border: none;
   outline: none;
@@ -51,6 +51,7 @@ a:hover {
 
 .navbar__links {
   padding-left: 10px;
+  font-size: 0;
 }
 
 .navbar__links a:first-child {

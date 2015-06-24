@@ -15,6 +15,7 @@ angular.module('durbeenApp')
       'Karma'
     ];
 
+    $scope.clusterName = ($routeParams.clusterName) ? $routeParams.clusterName : '';
     var selectedDate = $routeParams.date;
     $scope.selectedDate = moment(selectedDate, 'DD-MM-YYYY');
     $scope.imageData = [];
@@ -37,13 +38,21 @@ angular.module('durbeenApp')
       }
 
       $scope.imageData = rows;
-      console.log($scope.imageData);
     };
 
-    imagedataService.getAllImages(selectedDate)
-    .then(function(res){
-      prepareImages(res.data);
-    });
+    if ($scope.clusterName) {
+      imagedataService.getAllImages(selectedDate, $scope.clusterName)
+      .then(function(res){
+        prepareImages(res.data);
+      });
+    }
+
+    else {
+	    imagedataService.getAllImages(selectedDate)
+	    .then(function(res){
+	      prepareImages(res.data);
+	    });
+    }
 
 
   });

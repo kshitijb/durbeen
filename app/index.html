@@ -30,8 +30,8 @@
 						<a class="logo-top" href="/#/"></a>
 					</div>
 					<div class="navbar__links  col-md-9">
-						<a class="active" href="#/">Screens</a>
-						<a href="#/prototypes">Prototypes</a>
+						<a ng-class="{'active': location.path().indexOf('prototype') === -1}" href="#/">Screens</a>
+						<a ng-class="{'active': location.path().indexOf('prototype') > -1}" href="#/prototypes">Prototypes</a>
 						<a class="navbar__links___coming-soon"><span class="hint--bottom" data-hint="Coming soon!">Feedback</span></a>
 						<a class="navbar__links___coming-soon"><span class="hint--bottom" data-hint="Stay Tuned!">Guidelines</span></a>
 						<a class="navbar__links___coming-soon"><span class="hint--bottom" data-hint="Ye Bhi Ayega!">Research</span></a>
@@ -53,11 +53,11 @@
 					<section class="sidebar__clusters">
 						<p class="sidebar__clusters-header">Browse Clusters</p>
 						<ul>
-							<li class="active"><a href="/#/">All Clusters</a></li>
-							<li><a href="#">Test 1</a></li>
-							<li><a href="#">Test 2</a></li>
-							<li><a href="#">Test 3</a></li>
-							<li><a href="#">Housing Labs</a></li>
+							<li ng-class="{'active': location.path().indexOf('cluster') === -1}"><a href="/#/">All Clusters</a></li>
+							<li ng-class="{'active': location.path().indexOf('test1') > -1}"><a href="/#/cluster/test1">Test 1</a></li>
+							<li ng-class="{'active': location.path().indexOf('test2') > -1}"><a href="/#/cluster/test2">Test 2</a></li>
+							<li ng-class="{'active': location.path().indexOf('test3') > -1}"><a href="/#/cluster/test3">Test 3</a></li>
+							<li ng-class="{'active': location.path().indexOf('housing_labs') > -1}"><a href="/#/cluster/housing_labs">Housing Labs</a></li>
 						</ul>
 					</section>
 				</div>

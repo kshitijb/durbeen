@@ -71,7 +71,7 @@ angular.module('durbeenApp')
 
     var requestImagesForDate = function (date) {
       if ($scope.clusterName) {
-        imagedataService.getAllImages(date)
+        imagedataService.getAllImages(date, $scope.clusterName)
         .then(function(res){
           prepareImages(res.data);
         });
