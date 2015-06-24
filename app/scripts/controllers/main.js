@@ -16,6 +16,7 @@ angular.module('durbeenApp')
     ];
 
     $scope.clusterName = ($routeParams.clusterName) ? $routeParams.clusterName : '';
+    $scope.shouldShowLoader = true;
 
     /**
      * The structure of dateWiseData will be like this
@@ -61,18 +62,21 @@ angular.module('durbeenApp')
       $scope.dateWiseData.push({totalCount: data.count, date: currentDate, results: rows});
       currentListings++;
 
-      if (currentListings === listingThreshold)
+      if (currentListings === listingThreshold) {
         return;
+      }
 
       // Send the request for the previous date
       requestImagesForDate(moment(currentDate).subtract(1, 'days').format('DD-MM-YYYY'));
     };
 
     var requestImagesForDate = function (date) {
+      $scope.shouldShowLoader = true;
       if ($scope.clusterName) {
         imagedataService.getAllImages(date, $scope.clusterName)
         .then(function(res){
           prepareImages(res.data);
+          $scope.shouldShowLoader = false;
         });
 
         return;
@@ -81,6 +85,7 @@ angular.module('durbeenApp')
       imagedataService.getAllImages(date)
       .then(function(res){
         prepareImages(res.data);
+        $scope.shouldShowLoader = false;
       });
     };
 

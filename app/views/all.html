@@ -18,4 +18,6 @@
 			<a ng-click="showAll = true" ng-show="dataItem.totalCount > 3 && clusterName && !showAll" class="view-more">{{ dataItem.totalCount - 3 }} more</a>
 		</div>
 	</div>
+
+	<span ng-show="shouldShowLoader" class="loader">Loading...</span>
 </div>
