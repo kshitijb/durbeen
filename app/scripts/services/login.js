@@ -11,7 +11,7 @@ angular.module('durbeenApp')
   .service('loginService', function ($auth) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     this.authenticate = function(provider){
-    	$auth.authenticate(provider);
+    	return $auth.authenticate(provider);
     };
     this.logout = function(){
     	$auth.logout();

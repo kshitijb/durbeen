@@ -8,12 +8,10 @@
  * Controller of the durbeenApp
  */
 angular.module('durbeenApp')
-  .controller('MainCtrl', function ($scope, imagedataService, amMoment, $routeParams) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope, imagedataService, amMoment, $routeParams, $location) {
+    if (!$scope.isLoggedIn){
+      $location.path('/login');
+    }
 
     $scope.clusterName = ($routeParams.clusterName) ? $routeParams.clusterName : '';
     $scope.shouldShowLoader = true;
