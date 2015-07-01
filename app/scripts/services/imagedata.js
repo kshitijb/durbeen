@@ -13,10 +13,12 @@ angular.module('durbeenApp')
     this.getAllImages = function (date, clusterName) {
       var url;
 
-      if (clusterName)
-        url = globalvars.backendBaseUrl+'api/filter/cluster/' + clusterName + '/' + date
-      else
-        url = globalvars.backendBaseUrl+'api/all/' + date
+      if (clusterName){
+        url = globalvars.backendBaseUrl+'api/filter/cluster/' + clusterName + '/' + date;
+      }
+      else{
+        url = globalvars.backendBaseUrl+'api/all/' + date;
+      }
 
     	var promise = $http.get(url, {cache: true})
 		    .success(function(response){

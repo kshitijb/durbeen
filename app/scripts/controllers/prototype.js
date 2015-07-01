@@ -20,5 +20,5 @@ angular.module('durbeenApp')
     });
     $scope.trustSrc = function(src) {
 	    return $sce.trustAsResourceUrl(src);
-	}
+	};
   });

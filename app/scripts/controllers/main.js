@@ -44,19 +44,22 @@ angular.module('durbeenApp')
       var arr = data.results;
       currentDate = data.date;
 
-      if (!arr.length)
+      if (!arr.length){
         return;
+      }
 
       // Split result array into rows
       var rows = [], j = 0;
 
       for (var i = 1; i <= arr.length; i++) {
-        if (!rows[j])
+        if (!rows[j]){
           rows[j] = [];
+        }
 
         rows[j].push(arr[i-1]);
-        if (i % 3 === 0)
+        if (i % 3 === 0){
           j++;
+        }
       }
 
       $scope.dateWiseData.push({totalCount: data.count, date: currentDate, results: rows});
@@ -90,14 +93,15 @@ angular.module('durbeenApp')
     };
 
     $scope.loadMoreData = function () {
-      if ($scope.dateWiseData.length < 3)
+      if ($scope.dateWiseData.length < 3){
         return;
+      }
 
       if (currentListings === 3) {
         currentListings = 0;
         requestImagesForDate(moment(currentDate).subtract(1, 'days').format('DD-MM-YYYY'));
       }
-    }
+    };
 
     // Request data for today
     requestImagesForDate(moment(new Date()).format('DD-MM-YYYY'));

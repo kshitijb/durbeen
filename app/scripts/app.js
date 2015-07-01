@@ -19,7 +19,7 @@ angular
         'angularMoment',
         'infinite-scroll'
     ])
-    .config(function($routeProvider, $httpProvider, $resourceProvider) {
+    .config(function($routeProvider, $httpProvider) {
         moment.locale('en', {
           calendar : {
             lastDay : '[Yesterday]',
@@ -35,6 +35,10 @@ angular
             .when('/', {
                 templateUrl: 'views/all.html',
                 controller: 'MainCtrl'
+            })
+            .when('/login',{
+                templateUrl: 'views/login.html',
+                controller: 'LoginCtrl'
             })
             .when('/about', {
                 templateUrl: 'views/about.html',

@@ -22,19 +22,22 @@ angular.module('durbeenApp')
 
     var prepareImages = function (data) {
       var arr = data.results;
-      if (!arr.length)
+      if (!arr.length){
         return;
+      }
 
       // Split result array into rows
       var rows = [], j = 0;
 
       for (var i = 1; i <= arr.length; i++) {
-        if (!rows[j])
+        if (!rows[j]){
           rows[j] = [];
+        }
 
         rows[j].push(arr[i-1]);
-        if (i % 3 === 0)
+        if (i % 3 === 0){
           j++;
+        }
       }
 
       $scope.imageData = rows;
