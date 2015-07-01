@@ -86,5 +86,5 @@ angular
         $rootScope.location = $location;
     })
     .constant('globalVars', {
-        backendBaseUrl: BACKEND_DEV
+        backendBaseUrl: BACKEND_PROD
     });
