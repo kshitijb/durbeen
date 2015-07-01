@@ -43,7 +43,7 @@ angular.module('durbeenApp')
         }
       }
 
-      $scope.imageData.concat(rows);
+      $scope.imageData = $scope.imageData.concat(rows);
     };
 
     var requestImagesForPage = function (page) {
