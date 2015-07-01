@@ -8,16 +8,16 @@
  * Service in the durbeenApp.
  */
 angular.module('durbeenApp')
-  .service('imagedataService',['$http', 'global.variables', function ($http, globalvars) {
+  .service('imagedataService',function ($http, globalVars) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     this.getAllImages = function (date, clusterName) {
       var url;
 
       if (clusterName){
-        url = globalvars.backendBaseUrl+'api/filter/cluster/' + clusterName + '/' + date;
+        url = globalVars.backendBaseUrl+'api/filter/cluster/' + clusterName + '/' + date;
       }
       else{
-        url = globalvars.backendBaseUrl+'api/all/' + date;
+        url = globalVars.backendBaseUrl+'api/all/' + date;
       }
 
     	var promise = $http.get(url, {cache: true})
@@ -26,4 +26,4 @@ angular.module('durbeenApp')
 		    });
 	    return promise;
     };
-  }]);
+  });

@@ -1,6 +1,20 @@
-<div ng-repeat="p in prototypes" class="prototypes">
-	<div class="prototype-container embed-responsive embed-responsive-4by3 col-md-5 .col-md-offset-1">
-		<div>{{ p.project_name }}</div>
-		<iframe ng-src="{{ trustSrc(p.link) }}"+"?emb=1" width="486" height="960" allowTransparency="true" frameborder="0" class="embed-responsive-item"></iframe>
-	</div>
+<div class="row">
+    <div class="sidebar  col-md-3">
+        <section class="sidebar__clusters">
+            <p class="sidebar__clusters-header">Browse Clusters</p>
+            <ul>
+                <li ng-class="{'active': location.path().indexOf('cluster') === -1}"><a href="/#/">All Clusters</a></li>
+                <li ng-class="{'active': location.path().indexOf('buy') > -1}"><a href="/#/cluster/buy">Buy</a></li>
+                <li ng-class="{'active': location.path().indexOf('rentals master') > -1}"><a href="/#/cluster/rentals master">Rentals Master</a></li>
+            </ul>
+        </section>
+    </div>
+    <div class="col-md-7">
+        <div ng-repeat="p in prototypes" class="prototypes">
+            <div class="prototype-container embed-responsive embed-responsive-4by3 col-md-5 .col-md-offset-1">
+                <div>{{ p.project_name }}</div>
+                <iframe ng-src="{{ trustSrc(p.link) }}" + "?emb=1" width="486" height="960" allowTransparency="true" frameborder="0" class="embed-responsive-item"></iframe>
+            </div>
+        </div>
+    </div>
 </div>

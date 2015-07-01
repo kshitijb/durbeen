@@ -8,7 +8,7 @@
  * Service in the durbeenApp.
  */
 angular.module('durbeenApp')
-  .service('prototypeService', ['$http', 'global.variables', function ($http, globalVars) {
+  .service('prototypeService', function ($http, globalVars) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     this.getPrototypes = function(){
     	var promise = $http.get(globalVars.backendBaseUrl+'api/prototypes')
@@ -17,4 +17,4 @@ angular.module('durbeenApp')
     		});
     	return promise;
     };
-  }]);
+  });

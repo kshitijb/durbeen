@@ -1,23 +1,34 @@
-<div class="image-container">
-	<div infinite-scroll="loadMoreData()" ng-show="dateWiseData" ng-init="showAll = false">
-		<div ng-repeat="dataItem in dateWiseData" class="date-wise-section">
-			<h2 class="date-wise-section__title">{{ dataItem.date | amCalendar }}</h2>
-			<div class="row" ng-repeat="rows in dataItem.results" ng-show="$index < 1 || showAll">
-				<div class="col-md-4" ng-repeat="item in rows">
-					<div class="shot-container">
-						<a class="shot-container__thumb" ng-href="{{ item.image_url }}" style="background-image: url({{ item.image_url }})"></a>
-
-						<div class="shot-container__info">
-							by <span class="shot-container__info___name">{{item.image_author}}</span> at {{item.image_date | amDateFormat: 'h:mm a'}}
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<a ng-click="showAll = true" ng-show="dataItem.totalCount > 3 && !clusterName && !showAll" class="view-more">{{ dataItem.totalCount - 3 }} more</a>
-			<a ng-click="showAll = true" ng-show="dataItem.totalCount > 3 && clusterName && !showAll" class="view-more">{{ dataItem.totalCount - 3 }} more</a>
-		</div>
-	</div>
-
-	<div ng-show="shouldShowLoader" class="main-loader"></div>
+<div class="row">
+    <div class="sidebar  col-md-3">
+        <section class="sidebar__clusters">
+            <p class="sidebar__clusters-header">Browse Clusters</p>
+            <ul>
+                <li ng-class="{'active': location.path().indexOf('cluster') === -1}"><a href="/#/">All Clusters</a></li>
+                <li ng-class="{'active': location.path().indexOf('buy') > -1}"><a href="/#/cluster/buy">Buy</a></li>
+                <li ng-class="{'active': location.path().indexOf('rentals master') > -1}"><a href="/#/cluster/rentals master">Rentals Master</a></li>
+            </ul>
+        </section>
+    </div>
+    <div class="col-md-7">
+        <div class="image-container">
+            <div infinite-scroll="loadMoreData()" ng-show="dateWiseData" ng-init="showAll = false">
+                <div ng-repeat="dataItem in dateWiseData" class="date-wise-section">
+                    <h2 class="date-wise-section__title">{{ dataItem.date | amCalendar }}</h2>
+                    <div class="row" ng-repeat="rows in dataItem.results" ng-show="$index < 1 || showAll">
+                        <div class="col-md-4" ng-repeat="item in rows">
+                            <div class="shot-container">
+                                <a class="shot-container__thumb" ng-href="{{ item.image_url }}" style="background-image: url({{ item.image_url }})"></a>
+                                <div class="shot-container__info">
+                                    by <span class="shot-container__info___name">{{item.image_author}}</span> at {{item.image_date | amDateFormat: 'h:mm a'}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a ng-click="showAll = true" ng-show="dataItem.totalCount > 3 && !clusterName && !showAll" class="view-more">{{ dataItem.totalCount - 3 }} more</a>
+                    <a ng-click="showAll = true" ng-show="dataItem.totalCount > 3 && clusterName && !showAll" class="view-more">{{ dataItem.totalCount - 3 }} more</a>
+                </div>
+            </div>
+            <div ng-show="shouldShowLoader" class="main-loader"></div>
+        </div>
+    </div>
 </div>

@@ -17,9 +17,10 @@ angular
         'ngSanitize',
         'ngTouch',
         'angularMoment',
-        'infinite-scroll'
+        'infinite-scroll',
+        'satellizer'
     ])
-    .config(function($routeProvider, $httpProvider) {
+    .config(function($routeProvider, $httpProvider, $authProvider, globalVars) {
         moment.locale('en', {
           calendar : {
             lastDay : '[Yesterday]',
@@ -67,9 +68,21 @@ angular
         $httpProvider.defaults.headers.common = {
             Accept: 'application/json',
         };
+
+        $authProvider.oauth2({
+            tokenName: 'token',
+            url: globalVars.backendBaseUrl + 'auth/slack',
+            authorizationEndpoint: 'https://slack.com/oauth/authorize',
+            team: 'housing-d',
+            state: 'housing',
+            optionalUrlParams: ['team'],
+            requiredUrlParams: ['state']
+        });
+        $authProvider.tokenPrefix = 'durbeen';
+
     }).run(function($rootScope, $location) {
         $rootScope.location = $location;
     })
-    .constant('global.variables', {
-        backendBaseUrl: BACKEND_PROD
+    .constant('globalVars', {
+        backendBaseUrl: BACKEND_DEV
     });

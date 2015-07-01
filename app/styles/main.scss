@@ -4,6 +4,15 @@
 
 @import "prototype.scss";
 
+html, body{
+  width: 100%;
+  height: 100%;
+}
+
+.main-content{
+  margin-top: 72px;
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -273,7 +282,7 @@ a:hover, a:active {
   }
   /* Space out the masthead */
   .header {
-    margin-bottom: 30px;
+
   }
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
