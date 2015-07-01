@@ -17,17 +17,17 @@
 		<link rel="stylesheet" href="styles/main.css">
 		<!-- endbuild -->
 	</head>
-	<body >
+	<body ng-controller="GlobalCtrl">
 		<!--[if lt IE 7]>
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
 
 		<!-- Add your site or application content here -->
-		<dbheader></dbheader>
+		<dbheader ng-if="isLoggedIn"></dbheader>
 
-		<div class="container-fluid main-content" ng-view></div>
+		<div class="container-fluid main-content" ng-class="{'login-container': !isLoggedIn}" ng-view></div>
 
-		<div class="footer">
+		<div class="footer" ng-if="isLoggedIn">
 			<div class="container">
 				<p><span class="glyphicon glyphicon-heart"></span> from Housing Labs</p>
 			</div>
@@ -79,6 +79,8 @@
 <script src="scripts/services/prototype.js"></script>
 <script src="scripts/controllers/login.js"></script>
 <script src="scripts/directives/dbheader.js"></script>
+<script src="scripts/controllers/global.js"></script>
+<script src="scripts/services/login.js"></script>
 				<!-- endbuild -->
 </body>
 </html>
