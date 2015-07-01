@@ -71,5 +71,5 @@ angular
         $rootScope.location = $location;
     })
     .constant('global.variables', {
-        backendBaseUrl: 'http://128.199.247.181:8000/'
+        backendBaseUrl: BACKEND_PROD
     });

@@ -40,14 +40,6 @@
 						<a class="navbar__links___coming-soon"><span class="hint--bottom" data-hint="Coming soon!">Feedback</span></a>
 						<a class="navbar__links___coming-soon"><span class="hint--bottom" data-hint="Stay Tuned!">Guidelines</span></a>
 						<a class="navbar__links___coming-soon"><span class="hint--bottom" data-hint="Ye Bhi Ayega!">Research</span></a>
-<!--           <div class="collapse">
-
-						<ul class="nav navbar-nav">
-							<li class="active"><a href="#/">Home</a></li>
-							<li><a ng-href="#/about">About</a></li>
-							<li><a ng-href="#/">Contact</a></li>
-						</ul>
-					</div> -->
 				</div>
 			</div>
 		</div>
@@ -61,8 +53,6 @@
 							<li ng-class="{'active': location.path().indexOf('cluster') === -1}"><a href="/#/">All Clusters</a></li>
 							<li ng-class="{'active': location.path().indexOf('buy') > -1}"><a href="/#/cluster/buy">Buy</a></li>
 							<li ng-class="{'active': location.path().indexOf('rentals master') > -1}"><a href="/#/cluster/rentals master">Rentals Master</a></li>
-<!-- 							<li ng-class="{'active': location.path().indexOf('test3') > -1}"><a href="/#/cluster/test3">Test 3</a></li>
-							<li ng-class="{'active': location.path().indexOf('housing_labs') > -1}"><a href="/#/cluster/housing_labs">Housing Labs</a></li> -->
 						</ul>
 					</section>
 				</div>
@@ -88,6 +78,12 @@
 			 ga('send', 'pageview');
 		</script>
 
+		<!-- Backend url settings -->
+		<script type="text/javascript">
+			var BACKEND_DEV = 'http://127.0.0.1:8000/';
+			var BACKEND_PROD = 'http://128.199.247.181:8000/';
+		</script>
+
 		<!-- build:js(.) scripts/vendor.js -->
 		<!-- bower:js -->
 		<script src="bower_components/jquery/dist/jquery.js"></script>
@@ -102,6 +98,7 @@
 		<script src="bower_components/angular-touch/angular-touch.js"></script>
 		<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
 		<script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+		<script src="bower_components/satellizer/satellizer.js"></script>
 		<!-- endbower -->
 		<!-- endbuild -->
 
