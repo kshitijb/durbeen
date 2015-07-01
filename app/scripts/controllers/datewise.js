@@ -17,8 +17,11 @@ angular.module('durbeenApp')
 
     $scope.clusterName = ($routeParams.clusterName) ? $routeParams.clusterName : '';
     var selectedDate = $routeParams.date;
+
     $scope.selectedDate = moment(selectedDate, 'DD-MM-YYYY');
     $scope.imageData = [];
+    $scope.currentPage = 1;
+    $scope.hasMoreContent = false;
 
     var prepareImages = function (data) {
       var arr = data.results;
@@ -40,22 +43,49 @@ angular.module('durbeenApp')
         }
       }
 
-      $scope.imageData = rows;
+      $scope.imageData.concat(rows);
     };
 
-    if ($scope.clusterName) {
-      imagedataService.getAllImages(selectedDate, $scope.clusterName)
-      .then(function(res){
-        prepareImages(res.data);
-      });
+    var requestImagesForPage = function (page) {
+      $scope.shouldShowLoader = true;
+      if ($scope.clusterName) {
+        imagedataService.getAllImages(selectedDate, $scope.clusterName, page)
+        .then(function(res){
+          prepareImages(res.data);
+          $scope.shouldShowLoader = false;
+
+          // check if more content is there
+          if (res.data.next)
+            $scope.hasMoreContent = true;
+          else
+            $scope.hasMoreContent = false;
+        });
+      }
+
+      else {
+  	    imagedataService.getAllImages(selectedDate, '', page)
+  	    .then(function(res){
+  	      prepareImages(res.data);
+          $scope.shouldShowLoader = false;
+
+          // check if more content is there
+          if (res.data.next)
+            $scope.hasMoreContent = true;
+          else
+            $scope.hasMoreContent = false;
+  	    });
+      }
     }
 
-    else {
-	    imagedataService.getAllImages(selectedDate)
-	    .then(function(res){
-	      prepareImages(res.data);
-	    });
+    $scope.increasePageNumber = function () {
+      if ($scope.hasMoreContent) {
+        $scope.currentPage++;
+
+        requestImagesForPage($scope.currentPage);
+        $scope.hasMoreContent = false;
+      }
     }
 
+    requestImagesForPage($scope.currentPage);
 
   });
