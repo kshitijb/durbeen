@@ -2,9 +2,12 @@
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 @import "prototype.scss";
-html,body {
-    width: 100%;
-    height: 100%;
+
+@import "login.scss";
+
+html, body{
+  width: 100%;
+  height: 100%;
 }
 
 .main-content {

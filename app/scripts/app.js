@@ -70,15 +70,17 @@ angular
         };
 
         $authProvider.oauth2({
-            tokenName: 'token',
-            url: globalVars.backendBaseUrl + 'auth/slack',
+            name: 'slack',
+            url: globalVars.backendBaseUrl + 'api/auth/slack',
             authorizationEndpoint: 'https://slack.com/oauth/authorize',
             team: 'housing-d',
             state: 'housing',
+            clientId: '2954500362.7027853426',
             optionalUrlParams: ['team'],
             requiredUrlParams: ['state']
         });
         $authProvider.tokenPrefix = 'durbeen';
+        $authProvider.logoutRedirect = '/login';
 
     }).run(function($rootScope, $location) {
         $rootScope.location = $location;

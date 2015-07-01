@@ -8,10 +8,9 @@
  * Controller of the durbeenApp
  */
 angular.module('durbeenApp')
-  .controller('LoginCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('LoginCtrl', function ($scope, loginService, $location) {
+    $scope.isLoggedIn = loginService.isAuthenticated;
+    if ($scope.isLoggedIn){
+    	$location.path('/');
+    }
   });
