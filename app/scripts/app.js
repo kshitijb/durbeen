@@ -77,7 +77,8 @@ angular
             state: 'housing',
             clientId: '2954500362.7027853426',
             optionalUrlParams: ['team'],
-            requiredUrlParams: ['state']
+            requiredUrlParams: ['state'],
+            redirectUri: globalVars.prodRedirectUri
         });
         $authProvider.tokenPrefix = 'durbeen';
         $authProvider.logoutRedirect = '/login';
@@ -86,5 +87,7 @@ angular
         $rootScope.location = $location;
     })
     .constant('globalVars', {
-        backendBaseUrl: BACKEND_PROD
+        backendBaseUrl: BACKEND_PROD,
+        devRedirectUri: 'http://127.0.0.1:9000',
+        prodRedirectUri: 'http://128.199.124.63',
     });
