@@ -81,7 +81,7 @@ angular
             clientId: '2954500362.7027853426',
             optionalUrlParams: ['team'],
             requiredUrlParams: ['state'],
-            redirectUri: globalVars.devRedirectUri
+            redirectUri: globalVars.prodRedirectUri
         });
         $authProvider.tokenPrefix = 'durbeen';
         $authProvider.logoutRedirect = '/login';
