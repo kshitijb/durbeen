@@ -55,10 +55,12 @@ angular.module('durbeenApp')
           $scope.shouldShowLoader = false;
 
           // check if more content is there
-          if (res.data.next)
+          if (res.data.next){
             $scope.hasMoreContent = true;
-          else
+          }
+          else{
             $scope.hasMoreContent = false;
+          }
         });
       }
 
@@ -69,13 +71,15 @@ angular.module('durbeenApp')
           $scope.shouldShowLoader = false;
 
           // check if more content is there
-          if (res.data.next)
+          if (res.data.next){
             $scope.hasMoreContent = true;
-          else
+          }
+          else{
             $scope.hasMoreContent = false;
+          }
   	    });
       }
-    }
+    };
 
     $scope.increasePageNumber = function () {
       if ($scope.hasMoreContent) {
@@ -84,7 +88,7 @@ angular.module('durbeenApp')
         requestImagesForPage($scope.currentPage);
         $scope.hasMoreContent = false;
       }
-    }
+    };
 
     requestImagesForPage($scope.currentPage);
 

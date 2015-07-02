@@ -12,13 +12,16 @@ angular.module('durbeenApp')
     // AngularJS will instantiate a singleton by calling "new" on this function
     this.getAllImages = function (date, clusterName, page) {
       var url;
-      if (!page)
+      if (!page){
         page = 1;
+      }
 
-      if (clusterName)
-        url = globalVars.backendBaseUrl+'api/filter/cluster/' + clusterName + '/' + date + '?page=' + page
-      else
-        url = globalVars.backendBaseUrl+'api/all/' + date + '?page=' + page
+      if (clusterName){
+        url = globalVars.backendBaseUrl+'api/filter/cluster/' + clusterName + '/' + date + '?page=' + page;
+      }
+      else{
+        url = globalVars.backendBaseUrl+'api/all/' + date + '?page=' + page;
+      }
 
     	var promise = $http.get(url, {cache: true})
 		    .success(function(response){
