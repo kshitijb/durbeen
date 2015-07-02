@@ -66,8 +66,11 @@ angular
             });
 
         $httpProvider.defaults.headers.common = {
-            Accept: 'application/json',
+            Accept: 'application/json'
         };
+
+        $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+        $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
 
         $authProvider.oauth2({
             name: 'slack',
