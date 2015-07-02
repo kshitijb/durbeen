@@ -92,5 +92,5 @@ angular
     .constant('globalVars', {
         backendBaseUrl: BACKEND_PROD,
         devRedirectUri: 'http://127.0.0.1:9000',
-        prodRedirectUri: 'http://128.199.124.63',
+        prodRedirectUri: 'http://durbeen.io',
     });
