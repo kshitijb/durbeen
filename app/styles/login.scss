@@ -14,10 +14,21 @@
 }
 
 .login-content {
-    position: absolute;
+    margin: 0 auto;
+    width: 400px;
+    position: relative;
     top: 50%;
-    left: 50%;
-    margin-left: -240px;
+    transform: translateY(-50%);
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    .login-intro {
+        margin-bottom: 20px;
+        line-height: 24px;
+        opacity: 0.6;
+    }
 
     .login-button{
     	width: 200px;
@@ -31,13 +42,14 @@
     		background-color: #fff;
     	}
     	.login-button-text{
-
+            font-size: 13px;
     	}
     	.login-button-img{
     		width: 48px;
     		img{
     			width: 24px;
     			height: 24px;
+                margin-left: 10px;
     		}
     	}
     }
