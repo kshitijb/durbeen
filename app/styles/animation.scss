@@ -1,0 +1,11 @@
+.appear.ng-enter, .appear.ng-leave, {
+	transition: 0.2s ease-in all;
+}
+
+.appear.ng-enter.ng-enter-active, .appear.ng-leave, .appear.ng-hide {
+	max-height: 0;
+}
+
+.appear.ng-leave.ng-leave-active, .appear.ng-enter {
+	max-height: 1000px;
+}

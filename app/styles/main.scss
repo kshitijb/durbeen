@@ -1,9 +1,10 @@
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
-@import "prototype.scss";
 
+@import "prototype.scss";
 @import "login.scss";
+@import "animation.scss";
 
 html, body{
   width: 100%;
@@ -49,7 +50,7 @@ a:active {
 
 .header {
     /* Make the masthead heading the same height as the navigation */
-    
+
     h3 {
         margin-top: 0;
         margin-bottom: 0;
@@ -268,7 +269,7 @@ a:active {
         max-width: 730px;
     }
     /* Remove the padding we set earlier */
-    
+
     .header,
     .marketing,
     .footer {
@@ -276,10 +277,10 @@ a:active {
         padding-right: 0;
     }
     /* Space out the masthead */
-    
+
     .header {}
     /* Remove the bottom border on the jumbotron for visual effect */
-    
+
     .jumbotron {
         border-bottom: 0;
     }
