@@ -17,7 +17,7 @@
 					<div class="row" ng-repeat="rows in dataItem.results" ng-show="($parent.$index === 0 && $index < 2) || ($parent.$index != 0 && $index < 1) || showAll">
 						<div class="col-md-4" ng-repeat="item in rows">
 							<div class="shot-container">
-								<a class="shot-container__thumb" ng-href="{{ item.image_url }}" style="background-image: url({{ item.image_thumb }})"></a>
+								<a class="shot-container__thumb" ng-href="{{ item.image_url }}" style="background-image: url({{ (item.image_thumb) ? item.image_thumb : item.image_url }})"></a>
 								<div class="shot-container__info">
 									by <span class="shot-container__info___name">{{item.image_author}}</span> at {{item.image_date | amDateFormat: 'h:mm a'}}
 								</div>
