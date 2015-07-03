@@ -150,11 +150,12 @@ a:active {
 }
 
 .sidebar__clusters a:hover {
-    background: #eee;
+    background: #fefefe;
 }
 
 .sidebar__clusters .active a {
     font-weight: 600;
+    background: #eee;
 }
 /**
  * IMAGE GRID
