@@ -20,7 +20,7 @@ angular
         'infinite-scroll',
         'satellizer'
     ])
-    .config(function($routeProvider, $httpProvider, $authProvider, globalVars) {
+    .config(function($locationProvider, $routeProvider, $httpProvider, $authProvider, globalVars) {
         moment.locale('en', {
           calendar : {
             lastDay : '[Yesterday]',
@@ -31,6 +31,8 @@ angular
             sameElse : 'LL'
           }
         });
+
+        $locationProvider.html5Mode(true);
 
         $routeProvider
             .when('/', {
