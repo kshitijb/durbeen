@@ -210,6 +210,13 @@ a:active {
     border-radius: 3px;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.shot-container:hover {
+    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.25);
 }
 
 .shot-container__thumb {
@@ -217,20 +224,6 @@ a:active {
     background-size: cover;
     background-position: top center;
     height: 350px;
-    -webkit-filter: grayscale(0.5);
-    -moz-filter: grayscale(0.5);
-    filter: grayscale(0.5);
-    -webkit-transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-}
-
-.shot-container:hover {
-    .shot-container__thumb {
-        -webkit-filter: grayscale(0);
-        -moz-filter: grayscale(0);
-        filter: grayscale(0);
-    }
 }
 
 .shot-container__info {
