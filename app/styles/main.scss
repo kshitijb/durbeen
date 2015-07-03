@@ -12,7 +12,7 @@ html, body{
 }
 
 .main-content {
-    margin-top: 72px;
+    margin-top: 100px;
 }
 
 .browsehappy {
@@ -67,7 +67,7 @@ a:active {
 }
 
 .navbar__links {
-    padding-left: 10px;
+    padding-left: 7px;
     font-size: 0;
 }
 
@@ -150,11 +150,12 @@ a:active {
 }
 
 .sidebar__clusters a:hover {
-    background: #eee;
+    background: #fefefe;
 }
 
 .sidebar__clusters .active a {
     font-weight: 600;
+    background: #eee;
 }
 /**
  * IMAGE GRID
@@ -177,6 +178,15 @@ a:active {
 
 .date-wise-section {
     margin-bottom: 50px;
+
+    .full-image-container {
+        margin: 30px 0;
+        padding-right: 20px;
+    }
+
+    .full-image {
+        max-width: 100%;
+    }
 }
 
 .date-wise-section__title {
@@ -200,6 +210,13 @@ a:active {
     border-radius: 3px;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.shot-container:hover {
+    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.25);
 }
 
 .shot-container__thumb {
@@ -207,20 +224,6 @@ a:active {
     background-size: cover;
     background-position: top center;
     height: 350px;
-    -webkit-filter: grayscale(0.5);
-    -moz-filter: grayscale(0.5);
-    filter: grayscale(0.5);
-    -webkit-transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-}
-
-.shot-container:hover {
-    .shot-container__thumb {
-        -webkit-filter: grayscale(0);
-        -moz-filter: grayscale(0);
-        filter: grayscale(0);
-    }
 }
 
 .shot-container__info {

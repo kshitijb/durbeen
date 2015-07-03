@@ -26,8 +26,8 @@ angular
             lastDay : '[Yesterday]',
             sameDay : '[Today]',
             nextDay : '[Tomorrow]',
-            lastWeek : '[last] dddd',
-            nextWeek : 'dddd',
+            lastWeek : 'LL',
+            nextWeek : 'LL',
             sameElse : 'LL'
           }
         });
@@ -62,6 +62,10 @@ angular
             .when('/cluster/:clusterName/datewise/:date', {
                 templateUrl: 'views/datewise.html',
                 controller: 'DatewiseCtrl'
+            })
+            .when('/single/:id', {
+                templateUrl: 'views/single.html',
+                controller: 'SingleCtrl'
             })
             .otherwise({
                 redirectTo: '/'
