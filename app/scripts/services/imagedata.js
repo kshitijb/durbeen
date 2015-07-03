@@ -17,10 +17,10 @@ angular.module('durbeenApp')
       }
 
       if (clusterName){
-        url = globalVars.backendBaseUrl+'api/filter/cluster/' + clusterName + '/' + date + '?page=' + page;
+        url = globalVars.backendBaseUrl+'api/filter/cluster/' + clusterName + '/date/' + date + '?page=' + page;
       }
       else{
-        url = globalVars.backendBaseUrl+'api/all/' + date + '?page=' + page;
+        url = globalVars.backendBaseUrl+'api/all/date/' + date + '?page=' + page;
       }
 
     	var promise = $http.get(url, {cache: true})
@@ -29,4 +29,12 @@ angular.module('durbeenApp')
 		    });
 	    return promise;
     };
+
+    this.getSingleImage = function (id) {
+      var promise = $http.get(globalVars.backendBaseUrl+'api/all/' + id +'/', {cache: true})
+        .success(function(response){
+          return response;
+        });
+      return promise;
+    }
   });
