@@ -13,6 +13,7 @@ angular.module('durbeenApp')
       $location.path('/login');
     }
 
+    $scope.zoom = 100;
     $scope.data = {};
     $scope.screenId = ($routeParams.id) ? $routeParams.id : '';
     $scope.imageLoaded = false;
