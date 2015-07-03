@@ -11,10 +11,6 @@ html, body{
   height: 100%;
 }
 
-.main-content {
-    margin-top: 100px;
-}
-
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
@@ -30,6 +26,15 @@ body {
 
 a {
     cursor: pointer;
+}
+
+.container-big {
+    margin: 0 auto;
+    width: 1240px;
+}
+
+.main-content {
+    margin-top: 100px;
 }
 
 a:hover,
@@ -221,7 +226,7 @@ a:active {
     display: block;
     background-size: cover;
     background-position: top center;
-    height: 350px;
+    height: 400px;
 }
 
 .shot-container__info {
