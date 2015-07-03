@@ -1,6 +1,7 @@
 <!doctype html>
 <html class="no-js" ng-app="durbeenApp">
 	<head>
+		<base href="/">
 		<meta charset="utf-8">
 		<title>Durbeen</title>
 		<meta name="description" content="">
@@ -25,7 +26,7 @@
 		<!-- Add your site or application content here -->
 		<dbheader ng-if="isLoggedIn"></dbheader>
 
-		<div class="container-fluid main-content" ng-class="{'login-container': !isLoggedIn}" ng-view></div>
+		<div class="container-fluid main-content" ng-class="{'login-container': !isLoggedIn}" autoscroll="" ng-view></div>
 
 		<div class="footer" ng-if="isLoggedIn">
 			<div class="container">
