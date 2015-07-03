@@ -12,7 +12,8 @@
 	<div class="col-md-9">
 		<div ng-if="data">
 			<div class="date-wise-section">
-				<h2 class="date-wise-section__title">{{ data.image_author }} - {{ data.image_name }}</h2>
+				<h2 class="date-wise-section__title">{{ data.image_name }}</h2>
+				<p>by {{ data.image_author }}</p>
 				<div class="full-image-container">
 					<img class="full-image" ng-show="imageLoaded" image-on-load="imageLoaded = true" ng-src="{{ data.image_url }}" alt="">
 				</div>
