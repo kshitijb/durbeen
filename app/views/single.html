@@ -14,13 +14,13 @@
 			<div class="date-wise-section">
 				<h2 class="date-wise-section__title">{{ data.image_author }} - {{ data.image_name }}</h2>
 				<div class="full-image-container">
-					<img class="full-image" src="{{ data.image_url }}" alt="">
+					<img class="full-image" ng-show="imageLoaded" image-on-load="imageLoaded = true" ng-src="{{ data.image_url }}" alt="">
 				</div>
 			</div>
 
-			<div ng-show="shouldShowLoader" class="main-loader"></div>
+			<div ng-hide="imageLoaded" class="main-loader"></div>
 
-			<div id="disqus_thread" style="margin-bottom: 50px"></div>
+			<div id="disqus_thread" style="margin-bottom: 50px; padding-right: 30px"></div>
 			<script type="text/javascript">
 			    /* * * CONFIGURATION VARIABLES * * */
 			    var disqus_shortname = 'durbeen';

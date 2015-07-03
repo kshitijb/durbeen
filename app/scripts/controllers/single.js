@@ -15,11 +15,10 @@ angular.module('durbeenApp')
 
     $scope.data = {};
     $scope.screenId = ($routeParams.id) ? $routeParams.id : '';
-    $scope.shouldShowLoader = true;
+    $scope.imageLoaded = false;
 
     imagedataService.getSingleImage($scope.screenId)
       .then(function(res){
-        $scope.shouldShowLoader = false;
         $scope.data = res.data;
       });
 
