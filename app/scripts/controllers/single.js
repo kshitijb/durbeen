@@ -8,7 +8,7 @@
  * Controller of the durbeenApp
  */
 angular.module('durbeenApp')
-  .controller('SingleCtrl', function ($scope, $routeParams, imagedataService) {
+  .controller('SingleCtrl', function ($scope, $routeParams, $location, imagedataService) {
     if (!$scope.isLoggedIn){
       $location.path('/login');
     }

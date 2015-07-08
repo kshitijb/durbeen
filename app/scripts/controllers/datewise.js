@@ -8,12 +8,10 @@
  * Controller of the durbeenApp
  */
 angular.module('durbeenApp')
-  .controller('DatewiseCtrl', function ($scope, $routeParams, imagedataService) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('DatewiseCtrl', function ($scope, $routeParams, $location, imagedataService) {
+    if (!$scope.isLoggedIn){
+      $location.path('/login');
+    }
 
     $scope.clusterName = ($routeParams.clusterName) ? $routeParams.clusterName : '';
     var selectedDate = $routeParams.date;

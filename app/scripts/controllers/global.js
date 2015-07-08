@@ -29,7 +29,7 @@ angular.module('durbeenApp')
         if (!$cookies['csrftoken']) {
             loginService.dummyGet()
                 .then(function(res) {
-                    console.log('got csrf token now!');
+                    // console.log('got csrf token now!');
                 });
         }
     });
