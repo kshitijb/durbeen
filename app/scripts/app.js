@@ -82,11 +82,10 @@ angular
             name: 'slack',
             url: globalVars.backendBaseUrl + 'api/auth/slack',
             authorizationEndpoint: 'https://slack.com/oauth/authorize',
-            team: 'housing-d',
+            team: 'T02U2EQAN',
             state: 'housing',
             clientId: '2954500362.7027853426',
-            optionalUrlParams: ['team'],
-            requiredUrlParams: ['state'],
+            requiredUrlParams: ['state', 'team'],
             redirectUri: globalVars.prodRedirectUri
         });
         $authProvider.tokenPrefix = 'durbeen';
